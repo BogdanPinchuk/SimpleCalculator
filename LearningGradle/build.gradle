@@ -3,3 +3,10 @@ println rootProject.name
 def a = 3
 def b = 7
 println a + b
+
+println buildDir
+
+tasks.register('copyMessage', Copy) {
+    from 'important-message.txt'
+    into buildDir
+}
