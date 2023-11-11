@@ -1,0 +1,5 @@
+println rootProject.name
+
+def a = 3
+def b = 7
+println a + b
