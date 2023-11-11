@@ -1,16 +1,11 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'base'
 }
 
-println rootProject.name
-
-def a = 3
-def b = 7
-println a + b
-
-println buildDir
-
-tasks.register('copyMessage', Copy) {
-    from 'important-message.txt'
-    into buildDir
+tasks.register('generateDescriptions', Copy) {
+    from 'descriptions'
+    into "$buildDir/descriptions"
+    filter(ReplaceTokens, tokens: [THEME_PARK_NAME: "Grelephant's Wonder World"])
 }
