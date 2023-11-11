@@ -1,3 +1,7 @@
+plugins {
+    id 'base'
+}
+
 println rootProject.name
 
 def a = 3
