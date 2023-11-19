@@ -14,8 +14,57 @@ tasks.register('generateDescriptions', Copy) {
 
 tasks.register('zipDescriptions', Zip) {
     group 'Theme park'
-    dependsOn('generateDescriptions')
+    description 'Creates zip archive with data'
     destinationDirectory = buildDir
     archiveFileName = 'descriptions.zip'
     from "$buildDir/descriptions"
+
+    dependsOn generateDescriptions
+    finalizedBy confirmFinished, confirmFinished0, confirmFinished1, confirmFinished2, confirmFinished3
+
+    doFirst {
+        println 'before zipping'
+    }
+    doLast {
+        println 'after zipping'
+    }
+}
+
+tasks.register('confirmFinished') {
+//    enabled false
+    doLast {
+        println 'Finish! basic'
+    }
+}
+
+tasks.register('confirmFinished0') {
+    enabled false
+    mustRunAfter confirmFinished
+    doLast {
+        println 'Finish! #0'
+    }
+}
+
+tasks.register('confirmFinished1') {
+    mustRunAfter confirmFinished
+//    enabled false
+    doLast {
+        println 'Finish! #1'
+    }
+}
+
+tasks.register('confirmFinished2') {
+//    enabled false
+    mustRunAfter confirmFinished0
+    doLast {
+        println 'Finish! #2'
+    }
+}
+
+tasks.register('confirmFinished3') {
+    enabled false
+    mustRunAfter confirmFinished
+    doLast {
+        println 'Finish! #3'
+    }
 }
