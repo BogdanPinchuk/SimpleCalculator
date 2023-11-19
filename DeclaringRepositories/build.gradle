@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    google()
+    maven {
+        url 'https://my-custom-repo.com'
+    }
+}
+
+dependencies {
+    implementation(group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4') {
+        exclude group: 'commons-collections', module: 'commons-collections'
+    }
+}
