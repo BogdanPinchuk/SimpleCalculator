@@ -17,10 +17,10 @@ tasks.register('zipDescriptions', Zip) {
     description 'Creates zip archive with data'
     destinationDirectory = buildDir
     archiveFileName = 'descriptions.zip'
-    from "$buildDir/descriptions"
+    from generateDescriptions
 
-    dependsOn generateDescriptions
-    finalizedBy confirmFinished, confirmFinished0, confirmFinished1, confirmFinished2, confirmFinished3
+//    dependsOn generateDescriptions
+//    finalizedBy confirmFinished, confirmFinished0, confirmFinished1, confirmFinished2, confirmFinished3
 
     doFirst {
         println 'before zipping'
