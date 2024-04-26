@@ -21,7 +21,9 @@ public class RideStatusService {
     }
 
     public static String getRideStatus(String ride) {
-        List<String> rideStatuses = readFile(String.format("%s.txt", ride));
+//        List<String> rideStatuses = readFile(String.format("%s.txt", ride));
+//        List<String> rideStatuses = readFile(String.format("%s.txt", StringUtils.trimWhitespace(ride)));
+        List<String> rideStatuses = readFile(String.format("%s.txt", ride.trim()));
         return rideStatuses.get(new Random().nextInt(rideStatuses.size()));
     }
 
@@ -41,4 +43,5 @@ public class RideStatusService {
         }
         return result;
     }
+
 }
