@@ -13,4 +13,9 @@ public class RideStatusServiceFailureTest {
             rideStatusService.getRideStatus("dodgems");
         });
     }
+
+    @Test
+    public void notAGoodTest() {
+//        fail();
+    }
 }
